@@ -56,4 +56,23 @@
         <item name="android:layout_marginEnd">10dp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="SettingsGroupLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/tvos_label_secondary</item>
+        <item name="android:textSize">@dimen/tvos_text_caption2</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="SettingsFootnote">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/tvos_label_secondary</item>
+        <item name="android:textSize">@dimen/tvos_text_caption2</item>
+        <item name="android:lineSpacingExtra">3sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
 </resources>
