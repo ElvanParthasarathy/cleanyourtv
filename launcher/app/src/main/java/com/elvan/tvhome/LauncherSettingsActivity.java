@@ -24,6 +24,7 @@ public final class LauncherSettingsActivity extends Activity {
     private static final int[] DOCK_OPACITIES = {100, 70, 50, 30};
     private final TextView[] dockChoices = new TextView[DOCK_OPACITIES.length];
     private TextView wallpaperChoice;
+    private TextView languageChoice;
     private TextView animationsChoice;
     private TextView advancedChoice;
     private TextView followThemeChoice;
@@ -32,6 +33,11 @@ public final class LauncherSettingsActivity extends Activity {
     private int dockOpacity;
     private boolean animations;
     private boolean advancedEffects;
+
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(LocaleHelper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle state) {
@@ -96,6 +102,8 @@ public final class LauncherSettingsActivity extends Activity {
         }
         wallpaperChoice = findViewById(R.id.wallpaperChoice);
         wallpaperChoice.setOnClickListener(v -> showWallpaperPicker());
+        languageChoice = findViewById(R.id.languageChoice);
+        languageChoice.setOnClickListener(v -> showLanguagePicker());
         animationsChoice = findViewById(R.id.animationsChoice);
         animationsChoice.setOnClickListener(v -> {
             animations = !animations;
@@ -186,6 +194,36 @@ public final class LauncherSettingsActivity extends Activity {
                 .show();
     }
 
+    private void showLanguagePicker() {
+        String[] labels = {
+            getString(R.string.language_system_default),
+            "தமிழ் (Tamil)",
+            "English"
+        };
+        String[] codes = {"system", "ta", "en"};
+        String current = LocaleHelper.getLanguage(this);
+        int checked = 0;
+        for (int i = 0; i < codes.length; i++) {
+            if (codes[i].equals(current)) {
+                checked = i;
+                break;
+            }
+        }
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.language_label)
+                .setSingleChoiceItems(labels, checked, (dialog, which) -> {
+                    dialog.dismiss();
+                    String selected = codes[which];
+                    if (!selected.equals(current)) {
+                        LocaleHelper.setLanguage(this, selected);
+                        changed();
+                        recreate();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
     private static int indexOf(List<File> images, String name) {
         if (name == null) return -1;
         for (int i = 0; i < images.size(); i++) {
@@ -232,6 +270,18 @@ public final class LauncherSettingsActivity extends Activity {
                 "none".equals(wallpaperCurrent) ? getString(R.string.wallpaper_none)
                         : wallpaperCurrent != null ? wallpaperCurrent
                         : getString(R.string.wallpaper_theme_default)));
+        String currentLang = LocaleHelper.getLanguage(this);
+        String langLabel;
+        if ("ta".equals(currentLang)) {
+            langLabel = "தமிழ்";
+        } else if ("en".equals(currentLang)) {
+            langLabel = "English";
+        } else {
+            langLabel = getString(R.string.language_system_default);
+        }
+        if (languageChoice != null) {
+            languageChoice.setText(getString(R.string.language_state, langLabel));
+        }
         followThemeChoice.setSelected(!hasOnTvChoices());
     }
 

@@ -33,7 +33,7 @@
             android:alpha="0.72"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.23"
-            android:text="RECENTS"
+            android:text="@string/recents_title"
             android:textColor="#FFFFFF"
             android:textSize="11sp" />
 
@@ -43,7 +43,7 @@
             android:layout_marginTop="6dp"
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
-            android:text="Recently used"
+            android:text="@string/recents_subtitle"
             android:textColor="#FFFFFF"
             android:textSize="32sp" />
 
@@ -54,7 +54,6 @@
             android:layout_marginTop="8dp"
             android:alpha="0.6"
             android:fontFamily="sans-serif"
-            android:text="5 apps open  ·  1.2 GB memory free"
             android:textColor="#FFFFFF"
             android:textSize="13sp" />
     </LinearLayout>
@@ -74,14 +73,14 @@
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:layout_marginEnd="10dp"
-            android:text="Clear all" />
+            android:text="@string/recents_clear_all" />
 
         <TextView
             android:id="@+id/btnSettings"
             style="@style/RecentsPill"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:text="Settings" />
+            android:text="@string/settings" />
     </LinearLayout>
 
     <!-- Cards row: focused card 320x180dp, others 240x135dp, bottom-aligned -->
@@ -122,22 +121,22 @@
             android:layout_width="75dp"
             android:layout_height="30dp"
             android:layout_marginEnd="8dp"
-            android:text="Open" />
+            android:text="@string/recents_open" />
 
         <TextView
             android:id="@+id/btnClose"
             style="@style/RecentsAction"
-            android:layout_width="95dp"
+            android:layout_width="110dp"
             android:layout_height="30dp"
             android:layout_marginEnd="8dp"
-            android:text="Close app" />
+            android:text="@string/recents_close_app" />
 
         <TextView
             android:id="@+id/btnInfo"
             style="@style/RecentsAction"
             android:layout_width="85dp"
             android:layout_height="30dp"
-            android:text="App info" />
+            android:text="@string/recents_app_info" />
     </LinearLayout>
 
     <!-- Divider -->
@@ -163,13 +162,13 @@
         android:orientation="horizontal">
 
         <TextView android:id="@+id/key1" style="@style/RecentsKey" android:text="◀ ▶" />
-        <TextView style="@style/RecentsHint" android:text="Browse" />
+        <TextView style="@style/RecentsHint" android:text="@string/recents_key_browse" />
         <TextView android:id="@+id/key2" style="@style/RecentsKey" android:text="OK" />
-        <TextView style="@style/RecentsHint" android:text="Open" />
+        <TextView style="@style/RecentsHint" android:text="@string/recents_key_open" />
         <TextView android:id="@+id/key3" style="@style/RecentsKey" android:text="▼" />
-        <TextView style="@style/RecentsHint" android:text="Close app" />
+        <TextView style="@style/RecentsHint" android:text="@string/recents_key_close" />
         <TextView android:id="@+id/key4" style="@style/RecentsKey" android:text="BACK" />
-        <TextView style="@style/RecentsHint" android:text="Home" />
+        <TextView style="@style/RecentsHint" android:text="@string/recents_key_home" />
 
         <Space
             android:layout_width="0dp"

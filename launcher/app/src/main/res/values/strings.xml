@@ -145,4 +145,23 @@
     <!-- Cinematic top shelf (cinematic_home): the line under the focused dock app's name; %1$s is when it was
          last opened, e.g. "5 minutes ago" or "yesterday, 9:40 pm". -->
     <string name="last_opened">Last opened %1$s</string>
+
+    <!-- Language settings in launcher settings -->
+    <string name="language_label">Language</string>
+    <string name="language_state">Language: %1$s</string>
+    <string name="language_system_default">System default</string>
+
+    <!-- Recents Screen -->
+    <string name="recents_title">RECENTS</string>
+    <string name="recents_subtitle">Recently used</string>
+    <string name="recents_clear_all">Clear all</string>
+    <string name="recents_close_app">Close app</string>
+    <string name="recents_open">Open</string>
+    <string name="recents_app_info">App info</string>
+    <string name="recents_used_today">Used %1$s today</string>
+    <string name="recents_memory_free">%1$d apps open  ·  %2$.1f GB memory free</string>
+    <string name="recents_key_browse">Browse</string>
+    <string name="recents_key_open">Open</string>
+    <string name="recents_key_close">Close app</string>
+    <string name="recents_key_home">Home</string>
 </resources>

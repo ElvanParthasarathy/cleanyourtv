@@ -85,6 +85,11 @@ public class RecentAppsActivity extends Activity {
     // ------------------------------------------------------------------ lifecycle
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.wrap(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recent_apps);
@@ -283,7 +288,7 @@ public class RecentAppsActivity extends Activity {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
         double gb = mi.availMem / (1024.0 * 1024 * 1024);
-        txtSubtitle.setText(String.format(Locale.US, "%d apps open  ·  %.1f GB memory free", apps.size(), gb));
+        txtSubtitle.setText(getString(R.string.recents_memory_free, apps.size(), gb));
     }
 
     /** Most saturated colour of the icon, boosted so the glow looks like the design. */
@@ -381,7 +386,7 @@ public class RecentAppsActivity extends Activity {
             cardBg.setVisibility(View.VISIBLE);
         }
 
-        ((TextView) item.findViewById(R.id.line1)).setText("Used " + formatDuration(a.fgTime) + " today");
+        ((TextView) item.findViewById(R.id.line1)).setText(getString(R.string.recents_used_today, formatDuration(a.fgTime)));
         ((TextView) item.findViewById(R.id.txtName)).setText(a.label);
         ((TextView) item.findViewById(R.id.txtWhen)).setText(relative(a.lastUsed));
 
