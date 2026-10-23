@@ -29,6 +29,7 @@
         android:duplicateParentState="true"
         android:textSize="15sp"
         android:fontFamily="@string/font_medium"
+        android:includeFontPadding="false"
         android:singleLine="true" />
 
     <View
