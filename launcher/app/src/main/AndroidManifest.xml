@@ -9,8 +9,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <!-- Needed since Android 10 to read the Wi-Fi network name for the network pill. Never requested at
          runtime: build-and-install grants it with pm grant, so lint's Android 12 "ask for COARSE with
          FINE" rule does not apply here. -->
@@ -97,28 +95,6 @@
         </activity>
 
         <activity
-            android:name=".RecentAppsActivity"
-            android:exported="true"
-            android:taskAffinity=""
-            android:launchMode="singleTop"
-            android:excludeFromRecents="true"
-            android:noHistory="true"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="com.mitv.tvhome.action.HotKeyDealIntent" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <receiver
-            android:name=".MiKeyReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.GLOBAL_BUTTON" />
-            </intent-filter>
-        </receiver>
-
-        <activity
             android:name=".LauncherSettingsActivity"
             android:exported="true"
             android:excludeFromRecents="true"
@@ -140,16 +116,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!-- Remote Settings button panel (settings_key_panel); own task so the app behind stays put. -->
-        <activity
-            android:name=".QuickSettingsActivity"
-            android:exported="true"
-            android:taskAffinity=""
-            android:launchMode="singleTop"
-            android:excludeFromRecents="true"
-            android:noHistory="true"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <activity
             android:name=".HomeSettingsActivity"
             android:exported="false"

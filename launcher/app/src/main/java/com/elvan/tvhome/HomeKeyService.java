@@ -128,22 +128,12 @@ public class HomeKeyService extends AccessibilityService {
 
     @Override
     protected boolean onKeyEvent(KeyEvent event) {
-        // A scancode entry is more specific than any keycode, so it goes first.
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BUTTON_2 || event.getKeyCode() == KeyEvent.KEYCODE_APP_SWITCH
-                || event.getScanCode() == 150 || event.getScanCode() == 580) {
-            if (event.getAction() == KeyEvent.ACTION_UP && !event.isCanceled()) {
-                Intent open = new Intent(this, RecentAppsActivity.class);
-                startActivity(open.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-            }
-            return true;
-        }
         if (RemoteKeys.handle(this, event, appScancodes.get(event.getScanCode()),
                 holdAppScancodes.get(event.getScanCode()))) return true;
         // The stock launcher handled the remote's Settings button; with it disabled the button does nothing.
         if (isSettingsKey(event)) {
             if (event.getAction() == KeyEvent.ACTION_UP && !event.isCanceled()) {
-                Intent open = settingsPanel ? new Intent(this, QuickSettingsActivity.class)
-                        : SystemSettings.intent(this, Settings.ACTION_SETTINGS);
+                Intent open = SystemSettings.intent(this, Settings.ACTION_SETTINGS);
                 try {
                     startActivity(open.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 } catch (ActivityNotFoundException | SecurityException unavailable) {

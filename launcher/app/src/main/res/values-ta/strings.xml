@@ -130,17 +130,6 @@
     <string name="race_countdown_days">%1$dநா %2$dம</string>
     <string name="last_opened">கடைசியாக திறக்கப்பட்டது %1$s</string>
 
-    <!-- Recents Screen -->
-    <string name="recents_title">சமீபத்தியவை</string>
-    <string name="recents_subtitle">சமீபத்தில் பயன்படுத்தியவை</string>
-    <string name="recents_clear_all">அனைத்தையும் அழி</string>
-    <string name="recents_close_app">பயன்பாட்டை மூடு</string>
-    <string name="recents_open">திற</string>
-    <string name="recents_app_info">தகவல்</string>
-    <string name="recents_used_today">இன்று %1$s பயன்படுத்தப்பட்டது</string>
-    <string name="recents_memory_free">%1$d பயன்பாடுகள் திறக்கப்பட்டுள்ளன  ·  %2$.1f GB நினைவகம் உள்ளது</string>
-    <string name="recents_key_browse">உலவு</string>
-    <string name="recents_key_open">திற</string>
-    <string name="recents_key_close">மூடு</string>
-    <string name="recents_key_home">முகப்பு</string>
+    <!-- Google TV section title -->
+    <string name="your_apps">உங்கள் பயன்பாடுகள்</string>
 </resources>
