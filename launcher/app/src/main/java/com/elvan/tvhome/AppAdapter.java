@@ -287,6 +287,7 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     icon = pm.getApplicationIcon(pkg);
                 } catch (Exception ignored) {}
             }
+            icon = IconNormalizer.normalize(ctx, icon);
             if (card != null) {
                 fresh.add(new Entry(Entry.CARD, label, component, null, icon, card.caption, card.accent));
             } else {
@@ -313,7 +314,7 @@ public class AppAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 && pm.resolveActivity(new Intent(Settings.ACTION_HOME_SETTINGS), 0) != null) {
             fresh.add(new Entry(Entry.HOME_SETTINGS, ctx.getString(R.string.home_settings),
                     new ComponentName(ctx, HomeSettingsActivity.class), null,
-                    ctx.getDrawable(R.drawable.ic_home_settings), null, 0));
+                    IconNormalizer.normalize(ctx, ctx.getDrawable(R.drawable.ic_home_settings)), null, 0));
         }
         docked = 0;
         emptySlots = 0;
